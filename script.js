@@ -21,10 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let raffleParticipants = 0;
     let availableRaffleNumbers = [];
     let selectedOption = null;
-    let quizTimer = null;
-    let timerDangerTimeout = null;
+    let quizTimer = null; // Timeout principal de 60s
+    let timerDangerTimeout = null; // Timeout para cambiar a rojo
+    let countdownInterval = null; // Interval para actualizar el número del círculo
+    let targetQuizIndex = -1; 
     
-    // --- Lógica para el desenfoque de 'Anatomía de un Post' ---
     const anatomyColumn = document.getElementById('post-anatomy-col');
     if (anatomyColumn) {
         anatomyColumn.addEventListener('click', (e) => {
@@ -46,14 +47,24 @@ document.addEventListener('DOMContentLoaded', () => {
     navNumbersWrapper.style.display = 'flex';
     navNumbersWrapper.style.gap = '0.5rem';
     
+    // === INICIO DE LA MODIFICACIÓN (Detectar Quiz en Nav) ===
     for (let i = 0; i < totalSlides; i++) {
         const numBtn = document.createElement('button');
         numBtn.classList.add('nav-number-btn');
         numBtn.textContent = i + 1;
         numBtn.ariaLabel = `Go to slide ${i + 1}`;
+
+        // Comprobar si la diapositiva correspondiente es un quiz
+        if (slides[i].classList.contains('quiz-slide')) {
+            numBtn.classList.add('quiz-nav-btn'); // Añadir clase especial
+            numBtn.ariaLabel += ' (Pregunta)'; // Añadir info de accesibilidad
+        }
+
         numBtn.addEventListener('click', () => goToSlide(i));
         navNumbersWrapper.appendChild(numBtn);
     }
+    // === FIN DE LA MODIFICACIÓN ===
+
     navContainer.appendChild(navNumbersWrapper);
 
     const nextBtn = document.createElement('button');
@@ -80,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalOverlay.classList.remove('visible');
     }
 
-    // --- LÓGICA DEL SORTEO ---
+    // --- LÓGICA DE SORTEO ---
     const raffleInputDisplay = document.getElementById('raffle-input-display');
     const raffleRunView = document.getElementById('raffle-run-view');
     const raffleInputView = document.getElementById('raffle-input-view');
@@ -88,46 +99,78 @@ document.addEventListener('DOMContentLoaded', () => {
     const raffleResultView = document.getElementById('raffle-result-view');
     const raffleStartBtn = document.getElementById('raffle-start-btn');
     const raffleContinueBtn = document.getElementById('raffle-continue-btn');
-    const raffleSkipBtn = document.getElementById('raffle-skip-btn');
+    const raffleSkipBtn = document.getElementById('raffle-skip-btn'); 
     const raffleBackBtn = document.getElementById('raffle-back-btn');
+    const acceptBtn = document.getElementById('raffle-accept-btn'); 
+    const numpad = document.getElementById('numpad');
 
-    document.getElementById('raffle-accept-btn').addEventListener('click', () => {
+    function setupRaffleModal() {
+        raffleInputView.classList.remove('hidden');
+        raffleRunView.classList.add('hidden');
+        raffleResultView.classList.add('hidden');
+        raffleInputDisplay.value = '';
+        raffleSkipBtn.classList.add('hidden'); 
+        raffleBackBtn.classList.add('hidden');
+        showModal(raffleModal);
+        raffleInputDisplay.focus();
+    }
+
+    function runRaffleModal() {
+        if (availableRaffleNumbers.length === 0) {
+            availableRaffleNumbers = Array.from({ length: raffleParticipants }, (_, i) => i + 1);
+        }
+        raffleInputView.classList.add('hidden');
+        raffleRunView.classList.remove('hidden');
+        raffleResultView.classList.add('hidden');
+        raffleAnimationDisplay.textContent = '--';
+        raffleStartBtn.disabled = false;
+        raffleBackBtn.classList.add('hidden'); 
+        raffleSkipBtn.classList.add('hidden'); 
+        showModal(raffleModal);
+        raffleRunView.focus();
+    }
+
+    function acceptParticipantNumber() {
         const num = parseInt(raffleInputDisplay.value, 10);
-        if (num > 0) {
-            if (raffleParticipants !== num) {
-                raffleParticipants = num;
-                availableRaffleNumbers = Array.from({ length: raffleParticipants }, (_, i) => i + 1);
-            }
-            raffleInputView.classList.add('hidden');
-            raffleRunView.classList.remove('hidden');
-            raffleRunView.focus();
+        if (num > 0 && num <= 99) { // Asegura que sea un número válido entre 1 y 99
+            raffleParticipants = num;
+            availableRaffleNumbers = Array.from({ length: raffleParticipants }, (_, i) => i + 1);
+            runRaffleModal();
+        } else {
+             raffleInputDisplay.value = ''; // Limpia si no es válido
+        }
+    }
+    
+    numpad.addEventListener('click', (e) => {
+        const btn = e.target.closest('.numpad-btn');
+        if (!btn) return;
+        const key = btn.dataset.key;
+        let currentValue = raffleInputDisplay.value;
+        if (key === 'del') {
+            raffleInputDisplay.value = currentValue.slice(0, -1);
+        } else if (key === 'ok') {
+            acceptParticipantNumber();
+        } else if (currentValue.length < 2) { 
+            raffleInputDisplay.value += key;
         }
     });
-    
-    raffleSkipBtn.addEventListener('click', () => {
-        hideModals();
-        goToSlide(currentIndex + 1); 
-    });
 
-    raffleBackBtn.addEventListener('click', () => {
-        raffleRunView.classList.add('hidden');
-        raffleInputView.classList.remove('hidden');
+    raffleInputDisplay.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { acceptParticipantNumber(); }
     });
+    acceptBtn.addEventListener('click', acceptParticipantNumber);
+    raffleSkipBtn.addEventListener('click', () => { hideModals(); if (targetQuizIndex !== -1) { forceGoToSlide(targetQuizIndex); targetQuizIndex = -1; } });
+    raffleBackBtn.addEventListener('click', () => { raffleRunView.classList.add('hidden'); raffleInputView.classList.remove('hidden'); });
 
     const startRaffle = () => {
         if (raffleStartBtn.disabled) return;
         raffleStartBtn.disabled = true;
-        raffleBackBtn.classList.add('hidden');
         let animationInterval = setInterval(() => {
             const randomIndex = Math.floor(Math.random() * availableRaffleNumbers.length);
-            raffleAnimationDisplay.textContent = availableRaffleNumbers.length > 0 ? availableRaffleNumbers[randomIndex] : '??';
+            raffleAnimationDisplay.textContent = availableRaffleNumbers[randomIndex];
         }, 80);
-
         setTimeout(() => {
             clearInterval(animationInterval);
-            if(availableRaffleNumbers.length === 0){
-                 availableRaffleNumbers = Array.from({ length: raffleParticipants }, (_, i) => i + 1);
-            }
             const winnerIndex = Math.floor(Math.random() * availableRaffleNumbers.length);
             const winner = availableRaffleNumbers[winnerIndex];
             raffleAnimationDisplay.textContent = winner;
@@ -135,20 +178,25 @@ document.addEventListener('DOMContentLoaded', () => {
             raffleResultView.classList.remove('hidden');
         }, 3000);
     };
-
     raffleStartBtn.addEventListener('click', startRaffle);
     raffleRunView.addEventListener('keydown', (e) => { if(e.key === 'Enter') startRaffle(); });
-    
-    raffleContinueBtn.addEventListener('click', () => {
-        hideModals();
-        goToSlide(currentIndex + 1);
-    });
+    raffleContinueBtn.addEventListener('click', () => { hideModals(); if (targetQuizIndex !== -1) { forceGoToSlide(targetQuizIndex); targetQuizIndex = -1; } });
 
     // --- LÓGICA DE QUIZ INTERACTIVO ---
     function startTimer(slide) {
         const timerBar = slide.querySelector('.timer-bar');
         const quizBox = slide.querySelector('.quiz-box');
-        if (!timerBar) return;
+        const countdownCircle = slide.querySelector('.countdown-circle');
+        const timerNumber = slide.querySelector('.timer-number');
+        if (!timerBar || !countdownCircle || !timerNumber) return;
+
+        // Reset visual state
+        timerNumber.textContent = '60';
+        countdownCircle.style.animation = 'none'; // Resetea animación color
+        timerNumber.style.animation = 'none';
+        void countdownCircle.offsetWidth; // Trigger reflow
+        countdownCircle.style.animation = '';
+        timerNumber.style.animation = '';
 
         if (quizAudio) {
             quizAudio.currentTime = 0;
@@ -156,30 +204,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         slide.querySelectorAll('.option').forEach(opt => opt.style.pointerEvents = 'auto');
-        
         quizBox.classList.remove('running');
         void quizBox.offsetWidth; 
         quizBox.classList.add('running');
-        
         timerBar.classList.remove('running');
         void timerBar.offsetWidth;
         timerBar.classList.add('running');
         
         clearTimeout(quizTimer);
         clearTimeout(timerDangerTimeout);
+        clearInterval(countdownInterval); // Limpia intervalo anterior si existe
+
+        let secondsLeft = 60;
+        countdownInterval = setInterval(() => {
+            secondsLeft--;
+            timerNumber.textContent = secondsLeft >= 0 ? secondsLeft : 0;
+            if (secondsLeft < 0) {
+                clearInterval(countdownInterval);
+            }
+        }, 1000);
 
         timerDangerTimeout = setTimeout(() => {
             presentationFrame.classList.add('quiz-danger-mode');
-        }, 48000);
+        }, 48000); 
 
         quizTimer = setTimeout(() => {
-            // No hacer nada
-        }, 60000);
+            // Ya no es necesario llamar a showQuizResult aquí, el intervalo lo manejará
+            stopTimer(true); // Pasar true para indicar que el tiempo se agotó
+        }, 60000); 
     }
 
-    function stopTimer() {
+    function stopTimer(timeExpired = false) {
         clearTimeout(quizTimer);
         clearTimeout(timerDangerTimeout);
+        clearInterval(countdownInterval); // Detiene el contador numérico
 
         if (quizAudio) {
             quizAudio.pause();
@@ -190,15 +248,27 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentSlide && currentSlide.classList.contains('quiz-slide')) {
             const timerBar = currentSlide.querySelector('.timer-bar');
             const quizBox = currentSlide.querySelector('.quiz-box');
+            const countdownCircle = currentSlide.querySelector('.countdown-circle');
+            const timerNumber = currentSlide.querySelector('.timer-number');
+
             if (timerBar) timerBar.classList.remove('running');
             if (quizBox) quizBox.classList.remove('running');
+            // Detiene animación de color explícitamente
+            if (countdownCircle) countdownCircle.style.animationPlayState = 'paused';
+             if (timerNumber) timerNumber.style.animationPlayState = 'paused';
         }
         presentationFrame.classList.remove('quiz-danger-mode');
+
+        // Si el tiempo expiró, muestra el resultado inmediatamente
+        if (timeExpired) {
+             selectedOption = null; // Asegura que no haya opción seleccionada
+             showQuizResult(false); // Muestra resultado como incorrecto
+        }
     }
     
     document.querySelectorAll('.quiz-slide .option').forEach(option => {
         option.addEventListener('click', () => {
-            stopTimer();
+            stopTimer(); // Detiene el timer al hacer clic
             selectedOption = option;
             showModal(quizConfirmModal);
         });
@@ -207,23 +277,33 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('quiz-cancel-btn').addEventListener('click', () => {
         selectedOption = null;
         hideModals();
-        startTimer(slides[currentIndex]);
+        startTimer(slides[currentIndex]); // Reinicia el timer si cancela
     });
 
     function showQuizResult(wasCorrect) {
+        // ... (resto de la función showQuizResult sin cambios)...
         const selectedFeedbackContainer = document.getElementById('selected-answer-feedback');
         const otherOptionsContainer = document.getElementById('other-options-feedback');
     
         selectedFeedbackContainer.innerHTML = '';
         otherOptionsContainer.innerHTML = '';
-    
-        document.getElementById('quiz-result-title').textContent = wasCorrect ? "¡Correcto!" : "¡Incorrecto!";
-        document.getElementById('quiz-result-icon').innerHTML = wasCorrect ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-times-circle"></i>';
-        document.getElementById('quiz-result-icon').className = wasCorrect ? 'correct' : 'incorrect';
-    
-        const selectedExplanation = selectedOption.dataset.explanation;
-        selectedFeedbackContainer.textContent = selectedExplanation;
-        selectedFeedbackContainer.className = wasCorrect ? 'correct' : 'incorrect';
+        
+        if (!selectedOption) {
+            wasCorrect = false;
+            document.getElementById('quiz-result-title').textContent = "¡Tiempo agotado!";
+            document.getElementById('quiz-result-icon').innerHTML = '<i class="fas fa-clock"></i>';
+            document.getElementById('quiz-result-icon').className = 'incorrect';
+            selectedFeedbackContainer.textContent = "No seleccionaste una respuesta a tiempo.";
+            selectedFeedbackContainer.className = 'incorrect';
+        } else {
+            document.getElementById('quiz-result-title').textContent = wasCorrect ? "¡Correcto!" : "¡Incorrecto!";
+            document.getElementById('quiz-result-icon').innerHTML = wasCorrect ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-times-circle"></i>';
+            document.getElementById('quiz-result-icon').className = wasCorrect ? 'correct' : 'incorrect';
+        
+            const selectedExplanation = selectedOption.dataset.explanation;
+            selectedFeedbackContainer.textContent = selectedExplanation;
+            selectedFeedbackContainer.className = wasCorrect ? 'correct' : 'incorrect';
+        }
 
         const allOptions = Array.from(slides[currentIndex].querySelectorAll('.option'));
         const otherOptions = allOptions.filter(opt => opt !== selectedOption);
@@ -304,52 +384,47 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function resetQuizState(slide) {
-        stopTimer();
+        stopTimer(); 
         const quizBox = slide.querySelector('.quiz-box');
+        const countdownCircle = slide.querySelector('.countdown-circle');
+        const timerNumber = slide.querySelector('.timer-number');
         if(quizBox) {
-            quizBox.className = 'quiz-box anim';
+            quizBox.className = 'quiz-box anim'; 
+        }
+         // Resetea el número y la animación del círculo
+        if(countdownCircle) {
+           countdownCircle.style.animation = 'none';
+           countdownCircle.style.borderColor = 'var(--color-accent)'; 
+        }
+        if (timerNumber) {
+             timerNumber.textContent = '60';
+             timerNumber.style.animation = 'none';
+             timerNumber.style.color = 'var(--color-accent)';
         }
     }
 
-    // --- FUNCIÓN PRINCIPAL PARA MOSTRAR UNA DIAPOSITIVA ---
-    function goToSlide(index) {
-        if (index < 0 || index >= totalSlides) return;
+    function forceGoToSlide(index) {
         hideModals();
         
         const currentSlide = slides[currentIndex];
-        if (currentSlide.dataset.header === 'Evidencia Visual') {
+        if (currentSlide.dataset.header === 'Diapositiva 9 - Evidencia Visual') {
             stopCommentAnimation();
             stopShakeAnimation();
             if (anatomyColumn) anatomyColumn.classList.remove('revealed');
         }
-        if (currentSlide.classList.contains('quiz-slide')) resetQuizState(currentSlide);
+        if (currentSlide.classList.contains('quiz-slide')) {
+            resetQuizState(currentSlide);
+        }
         
         currentSlide.classList.remove('active');
         resetAnimations(currentSlide);
         
         currentIndex = index;
         const newSlide = slides[currentIndex];
-        
         newSlide.classList.add('active');
 
-        if (newSlide.dataset.triggerRaffle === 'true') {
-            if (raffleParticipants === 0) {
-                raffleInputView.classList.remove('hidden');
-                raffleRunView.classList.add('hidden');
-                raffleInputDisplay.value = '';
-            } else {
-                raffleInputView.classList.add('hidden');
-                raffleRunView.classList.remove('hidden');
-            }
-            raffleResultView.classList.add('hidden');
-            raffleAnimationDisplay.textContent = '--';
-            raffleStartBtn.disabled = false;
-            raffleBackBtn.classList.remove('hidden');
-            showModal(raffleModal);
-        }
-
         triggerAnimations(newSlide);
-        if (newSlide.dataset.header === 'Evidencia Visual') {
+        if (newSlide.dataset.header === 'Diapositiva 9 - Evidencia Visual') {
             startCommentAnimation();
             startShakeAnimation();
         }
@@ -360,7 +435,25 @@ document.addEventListener('DOMContentLoaded', () => {
         updateUI();
     }
 
-    // --- FUNCIONES AUXILIARES ---
+    function goToSlide(index) {
+        if (index < 0 || index >= totalSlides || index === currentIndex) return;
+        
+        const newSlide = slides[index];
+
+        if (newSlide.classList.contains('quiz-slide')) {
+            targetQuizIndex = index; 
+
+            if (raffleParticipants === 0) {
+                setupRaffleModal();
+            } else {
+                runRaffleModal();
+            }
+            return; 
+        }
+        
+        forceGoToSlide(index);
+    }
+
     function triggerAnimations(slide) {
         slide.querySelectorAll('.anim').forEach(el => {
             const delay = parseInt(el.dataset.delay, 10) || 0;
@@ -379,9 +472,10 @@ document.addEventListener('DOMContentLoaded', () => {
         nextBtn.disabled = currentIndex === totalSlides - 1;
     }
 
-    // --- LÓGICA DE NAVEGACIÓN CENTRALIZADA ---
     function handleNext() {
-        const isAnatomySlide = slides[currentIndex].dataset.header === 'Evidencia Visual';
+        if (currentIndex >= totalSlides - 1) return; 
+
+        const isAnatomySlide = slides[currentIndex].dataset.header === 'Diapositiva 9 - Evidencia Visual';
         const isAnatomyRevealed = anatomyColumn && anatomyColumn.classList.contains('revealed');
 
         if (isAnatomySlide && !isAnatomyRevealed) {
@@ -392,7 +486,6 @@ document.addEventListener('DOMContentLoaded', () => {
         goToSlide(currentIndex + 1);
     }
 
-    // --- EVENT LISTENERS ---
     nextBtn.addEventListener('click', handleNext);
     prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
     
@@ -400,13 +493,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalOverlay.classList.contains('visible')) {
             if (e.key === 'Enter') {
                 if (!raffleInputView.classList.contains('hidden')) {
-                    document.getElementById('raffle-accept-btn').click();
+                    if (document.activeElement === raffleInputDisplay) { acceptParticipantNumber(); }
+                } else if (!raffleRunView.classList.contains('hidden') && !raffleResultView.classList.contains('hidden')) {
+                    document.getElementById('raffle-continue-btn').click();
                 } else if (!raffleRunView.classList.contains('hidden')) {
                     startRaffle();
+                } else if (!quizConfirmModal.classList.contains('hidden')) {
+                    document.getElementById('quiz-confirm-btn').click();
+                } else if (!quizResultModal.classList.contains('hidden')) {
+                     document.getElementById('quiz-result-continue-btn').click();
                 }
             }
-            return;
+            return; 
         }
+        
         if (e.key === 'ArrowRight') handleNext();
         else if (e.key === 'ArrowLeft') goToSlide(currentIndex - 1);
     });
@@ -414,19 +514,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const handleSwipe = () => {
         const deltaX = touchendX - touchstartX;
         if (Math.abs(deltaX) < SWIPE_THRESHOLD) return;
-
-        if (deltaX < 0) {
-            handleNext();
-        } else {
-            goToSlide(currentIndex - 1);
-        }
+        if (deltaX < 0) { handleNext(); } 
+        else { goToSlide(currentIndex - 1); }
     };
-
     slidesWrapper.addEventListener('touchstart', e => { touchstartX = e.changedTouches[0].screenX; }, { passive: true });
     slidesWrapper.addEventListener('touchend', e => { touchendX = e.changedTouches[0].screenX; handleSwipe(); });
     slidesWrapper.addEventListener('mousedown', e => { touchstartX = e.screenX; });
     slidesWrapper.addEventListener('mouseup', e => { touchendX = e.screenX; handleSwipe(); });
 
     // --- INICIALIZACIÓN ---
-    goToSlide(0);
+    forceGoToSlide(0); 
 });
