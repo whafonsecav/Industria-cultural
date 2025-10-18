@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Industria Cultural - Presentación Interactiva</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <main class="presentation-container">
+        <div class="presentation-wrapper">
+            <div class="presentation-frame">
+                <div class="slides-wrapper">
+                    
+                    <div class="slide active" data-header="Diapositiva 1 - Portada">
+                        <div class="slide-background" style="background-image: url('https://picsum.photos/1920/1080?random=1&blur=5');"></div>
+                        <div class="slide-content text-center full-center">
+                            <div>
+                                <h1 class="anim" data-delay="100" data-from="top">Industria Cultural</h1>
+                                <h2 class="anim" data-delay="300" data-from="top">¿Entretenimiento o Control? 🤔</h2>
+                                <div class="divider anim" data-delay="500" data-from="top"></div>
+                                <div class="anim" data-delay="700" data-from="bottom">
+                                    <p class="subtitle">Una mirada moderna a la Escuela de Frankfurt</p>
+                                    <p class="author"><strong>William Fonseca & Camila Riaño</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slide" data-header="Diapositiva 3 - Aplicación Práctica">
+                        <div class="slide-content full-center-vertical">
+                            <h2 class="anim text-center" data-delay="100" data-from="top">¿Alguna vez has sentido un "Déjà Vu" cultural?</h2>
+                            <p class="anim text-large text-center" data-delay="200" data-from="top">Esa extraña sensación de que... "esto ya lo he visto".</p>
+                            <div class="feature-grid anim" data-delay="400" data-from="bottom">
+                                <div class="feature-card">
+                                    <div class="icon-wrapper"><i class="fas fa-film"></i></div>
+                                    <h3>En Netflix</h3>
+                                    <p>La misma fórmula: chico conoce chica, se odian, se enamoran; o el superhéroe salvando al mundo de un rayo azul gigante.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <div class="icon-wrapper"><i class="fas fa-music"></i></div>
+                                    <h3>En Spotify/TikTok</h3>
+                                    <p>Pones "Éxitos del Momento" y todas las canciones, aunque sean de artistas diferentes, tienen el mismo esqueleto, ¡el mismo beat de reguetón!.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <div class="icon-wrapper"><i class="fas fa-utensils"></i></div>
+                                    <h3>La Metáfora</h3>
+                                    <p>Es como un buffet infinito, pero toda la comida, aunque tenga diferente color, en el fondo sabe a lo mismo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide" data-header="Diapositiva 2 - Introducción">
+                        <div class="slide-content full-center-vertical">
+                            <h2 class="anim text-center" data-delay="100" data-from="top">El Origen de la Sospecha 🧐</h2>
+                            <p class="anim text-large text-center" data-delay="200" data-from="top">¿Y si no fuera casualidad? Un grupo de filósofos alemanes lo predijo hace 100 años.</p>
+                            <div class="feature-grid anim" data-delay="400" data-from="bottom">
+                                <div class="feature-card">
+                                    <div class="icon-wrapper"><i class="fas fa-monument"></i></div>
+                                    <h3>Alemania: República de Weimar</h3>
+                                    <p>Tras la 1ª Guerra Mundial (1918-1933), Alemania vivió una época de enorme libertad creativa y artística, pero también de profunda crisis económica y política. Un terreno fértil para nuevas ideas.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <div class="icon-wrapper"><i class="fas fa-university"></i></div>
+                                    <h3>El Instituto (1923)</h3>
+                                    <p>En medio de ese contexto, se funda el Instituto de Investigación Social en Frankfurt. Su idea era revolucionaria: "No vamos a describir el mundo. Vamos a cambiarlo".</p>
+                                </div>
+                                <div class="feature-card">
+                                    <div class="icon-wrapper"><i class="fas fa-brain"></i></div>
+                                    <h3>La "Teoría Crítica"</h3>
+                                    <p>Crearon un enfoque único, inspirándose en las ideas de Marx (economía), Freud (inconsciente) y Hegel (historia) para analizar críticamente la sociedad.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slide" id="pregunta-guia-slide" data-header="Diapositiva 2 - Introducción">
+                        <div class="slide-content full-center">
+                            <p class="anim subtitle" data-delay="100" data-from="top">Con autores como <strong>Theodor Adorno, Max Horkheimer y Herbert Marcuse</strong>,</p>
+                            <p class="anim subtitle" data-delay="200" data-from="top">se plantearon la pregunta guía:</p>
+                            <h2 class="anim" data-delay="400" data-from="top">¿Es el entretenimiento una expresión auténtica...</h2>
+                            <h2 class="anim" data-delay="600" data-from="bottom">...o es una herramienta de control que moldea lo que pensamos?</h2>
+                        </div>
+                    </div>
+                    
+                    <div class="slide quiz-slide" data-header="Pregunta de Repaso 1">
+                        <div class="slide-content full-center">
+                             <div class="quiz-box anim" data-delay="200">
+                                <div class="countdown-circle"><span class="timer-number">60</span></div>
+                                <div class="timer-bar"></div>
+                                <p class="quiz-prompt">¿En qué contexto histórico y geográfico nació principalmente la Escuela de Frankfurt?</p>
+                                <div class="options-grid">
+                                    <button class="option" data-explanation="Incorrecto. Hollywood fue el lugar de exilio irónico donde desarrollaron la teoría de la Industria Cultural, pero la escuela nació en Alemania."><span class="option-prefix">A:</span> En Hollywood, California, durante la edad de oro del cine.</button>
+                                    <button class="option" data-correct="true" data-explanation="¡Correcto! Nació en la República de Weimar (Alemania, después de la 1ª Guerra Mundial), una época de crisis y creatividad."><span class="option-prefix">B:</span> En Alemania, durante la inestable República de Weimar.</button>
+                                    <button class="option" data-explanation="Incorrecto. Si bien se inspiraron en Marx, la escuela no nació en la Rusia Soviética."><span class="option-prefix">C:</span> En la Rusia Soviética, después de la revolución bolchevique.</button>
+                                    <button class="option" data-explanation="Incorrecto. Aunque algunos miembros se exiliaron en Nueva York, la fundación y las ideas originales surgieron en Frankfurt, Alemania."><span class="option-prefix">D:</span> En Nueva York, Estados Unidos, durante la Gran Depresión.</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide" data-header="Diapositiva 4 - Idea Central">
+                        <div class="slide-content text-center full-center">
+                            <h2 class="anim" data-delay="100" data-from="top">El "Villano" de la Historia 👿</h2>
+                            <p class="anim text-large" data-delay="200" data-from="top">El ascenso de Hitler. El instituto, (miembros judíos y marxistas), fue cerrado por los nazis en 1933.</p>
+                            <div class="infographic-flow anim" data-delay="400" data-from="bottom">
+                                <div class="flow-item">
+                                    <div class="icon-wrapper"><i class="fas fa-flag"></i></div>
+                                    <h4>Frankfurt (1933)</h4>
+                                    <p>Huyen para salvar sus vidas.</p>
+                                </div>
+                                <div class="flow-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+                                <div class="flow-item">
+                                    <div class="icon-wrapper"><i class="fas fa-building"></i></div>
+                                    <h4>Nueva York</h4>
+                                    <p>Se asocian con la U. de Columbia.</p>
+                                </div>
+                                 <div class="flow-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+                                <div class="flow-item">
+                                    <div class="icon-wrapper"><i class="fas fa-sun"></i></div>
+                                    <h4>El Destino Irónico</h4>
+                                    <p>Terminan en California, ¡al ladito de Hollywood!.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slide" data-header="Diapositiva 4 - Idea Central">
+                        <div class="slide-content text-center full-center">
+                            <h2 class="anim" data-delay="100" data-from="top">Nace la "Industria Cultural" 🏭</h2>
+                            <p class="anim text-large" data-delay="200" data-from="top">Huyendo de la propaganda Nazi (dirigida por Joseph Goebbels, ministro de Hitler), ven en Hollywood y la radio de EE.UU. mecanismos de control parecidos.</p>
+                            <div class="infographic-flow">
+                                <div class="flow-item anim" data-delay="400" data-from="bottom">
+                                    <div class="icon-wrapper"><i class="fas fa-paint-brush"></i></div>
+                                    <h4>Antes</h4>
+                                    <p>La cultura era una expresión auténtica de un artista o del pueblo.</p>
+                                </div>
+                                <div class="flow-arrow anim" data-delay="600" data-from="bottom"><i class="fas fa-long-arrow-alt-right"></i></div>
+                                <div class="flow-item anim" data-delay="800" data-from="bottom">
+                                    <div class="icon-wrapper"><i class="fas fa-industry"></i></div>
+                                    <h4>Ahora (Industria Cultural)</h4>
+                                    <p>La cultura se ha convertido en un <strong>PRODUCTO</strong>. Se fabrica en serie, estandarizado, como si fueran salchichas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide" data-header="Diapositiva 4 - Idea Central">
+                        <div class="slide-content text-center full-center">
+                            <h2 class="anim" data-delay="100" data-from="top">¿Con qué objetivo?</h2>
+                            <div class="infographic-flow anim" data-delay="400" data-from="bottom">
+                                <div class="flow-item">
+                                    <div class="icon-wrapper"><i class="fas fa-coins"></i></div>
+                                    <h4>Objetivo 1: Beneficio Económico</h4>
+                                    <p>Ya no se busca inspirar o cuestionar. El valor de una película, canción o serie se mide por su capacidad de venderse masivamente y generar ganancias para las grandes corporaciones.</p>
+                                </div>
+                                <div class="flow-arrow"><i class="fas fa-plus"></i></div>
+                                <div class="flow-item">
+                                    <div class="icon-wrapper"><i class="fas fa-lock"></i></div>
+                                    <h4>Objetivo 2: Control Ideológico</h4>
+                                    <p>Distraernos con contenido fácil para no hacer preguntas incómodas sobre el sistema (la desigualdad, el consumismo, etc.).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide" data-header="Diapositiva 4 - Idea Central">
+                        <div class="slide-content text-center full-center">
+                            <h2 class="anim" data-delay="100" data-from="top">El Resultado: Una "Falsa Conciencia" 🧠</h2>
+                            <p class="anim text-large" data-delay="300" data-from="bottom">Nos venden la idea de que la felicidad se consigue comprando.</p>
+                            <div class="infographic-flow anim" data-delay="500" data-from="bottom">
+                                <div class="flow-item">
+                                    <div class="icon-wrapper large"><i class="fas fa-smile"></i></div>
+                                    <h3>Felicidad</h3>
+                                </div>
+                                <div class="equals-sign">=</div>
+                                <div class="flow-item">
+                                     <div class="icon-wrapper large"><i class="fas fa-shopping-cart"></i></div>
+                                    <h3>Comprar</h3>
+                                </div>
+                            </div>
+                            <p class="anim text-large" data-delay="700" data-from="bottom">Es un ciclo perfecto: trabajas para comprar cosas que no necesitas y así el sistema sigue girando.</p>
+                        </div>
+                    </div>
+
+                    <div class="slide quiz-slide" data-header="Pregunta de Repaso 2">
+                        <div class="slide-content full-center">
+                             <div class="quiz-box anim" data-delay="200">
+                                <div class="countdown-circle"><span class="timer-number">60</span></div>
+                                <div class="timer-bar"></div>
+                                <p class="quiz-prompt">¿Por qué Adorno y Horkheimer llamaron a este fenómeno "Industria Cultural" y no "Cultura de Masas"?</p>
+                                <div class="options-grid">
+                                    <button class="option" data-explanation="Incorrecto. Justamente querían criticar la producción, no solo el resultado final."><span class="option-prefix">A:</span> Porque sonaba más académico e importante.</button>
+                                    <button class="option" data-correct="true" data-explanation="¡Correcto! Querían enfatizar que la culpa no era del 'mal gusto' del público, sino del sistema cínico y calculador que *produce* esa cultura estandarizada para obtener ganancias."><span class="option-prefix">B:</span> Para culpar al sistema productor (la industria) y no al consumidor.</button>
+                                    <button class="option" data-explanation="Incorrecto. Otros críticos sí hablaban de 'cultura de masas' con desprecio. Ellos usaron 'industria' para señalar al productor."><span class="option-prefix">C:</span> Para despreciar a la gente que consumía cultura popular.</button>
+                                    <button class="option" data-explanation="Incorrecto. Aunque sí analizaron Hollywood, el término 'Industria' buscaba ser más general y crítico del sistema capitalista."><span class="option-prefix">D:</span> Porque se enfocaron únicamente en la industria del cine de Hollywood.</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide" data-header="Diapositiva 5 - Supuestos">
+                        <div class="slide-content full-center-vertical">
+                            <h2 class="anim text-center" data-delay="100" data-from="top">Máquina 1: Estandarización 🤖</h2>
+                            <p class="anim text-large text-center" data-delay="200" data-from="top">Es la FÓRMULA. Todo se produce siguiendo un patrón predecible para maximizar el éxito y minimizar el riesgo.</p>
+                            <div class="feature-grid anim" data-delay="400" data-from="bottom">
+                                <div class="feature-card">
+                                    <div class="icon-wrapper"><i class="fas fa-chart-line"></i></div>
+                                    <h3>Música Pop</h3>
+                                    <p>Un estudio analizó un millón de canciones y descubrió que la música se ha vuelto más simple y homogénea. Adorno ya se quejaba de la estructura de 32 compases.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <div class="icon-wrapper"><i class="fas fa-heart-broken"></i></div>
+                                    <h3>Cine (Rom-Com)</h3>
+                                    <p>La fórmula que hemos visto mil veces: se conocen, se odian, se gustan, pelean por un malentendido, y uno corre al aeropuerto.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <div class="icon-wrapper"><i class="fas fa-user-shield"></i></div>
+                                    <h3>Cine (Superhéroes)</h3>
+                                    <p>El héroe debe salvar al mundo de un rayo azul gigante que sale del cielo. Cambian los personajes, pero la fórmula es la misma.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slide" data-header="Diapositiva 5 - Supuestos">
+                        <div class="slide-content full-center-vertical">
+                            <h2 class="anim text-center" data-delay="100" data-from="top">Máquina 2: Pseudoindividualización 🎭</h2>
+                            <p class="anim text-large text-center" data-delay="200" data-from="top">Es el truco más astuto: hacerte creer que eliges algo "único" y "especial", cuando en realidad es el mismo producto estandarizado con un "lacito diferente".</p>
+                            <div class="feature-grid anim" data-delay="400" data-from="bottom">
+                                <div class="feature-card">
+                                    <div class="icon-wrapper"><i class="fas fa-mobile-alt"></i></div>
+                                    <h3>Smartphones</h3>
+                                    <p>¿La diferencia real entre el iPhone 15, 15 Pro y 15 Pro Max? Mínima. Pero te lo venden como una expresión de tu personalidad: el "creativo", el "profesional".</p>
+                                </div>
+                                <div class="feature-card">
+                                    <div class="icon-wrapper"><i class="fas fa-shoe-prints"></i></div>
+                                    <h3>Zapatillas</h3>
+                                    <p>Cientos de modelos de Nike o Adidas que son, en esencia, la misma zapatilla, pero con un color diferente o el logo un milímetro más a la izquierda.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <div class="icon-wrapper"><i class="fas fa-car"></i></div>
+                                    <h3>Coches</h3>
+                                    <p>El modelo "Sport" (con un alerón de plástico) vs. el modelo "Básico", aunque el motor sea idéntico. Es el "adorno que disfraza la uniformidad".</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slide" data-header="Diapositiva 5 - Supuestos">
+                        <div class="slide-content text-center full-center">
+                             <h2 class="anim" data-delay="100" data-from="top">Máquina 3: "Falsas Necesidades" ✨</h2>
+                             <p class="anim text-large" data-delay="300" data-from="top">Desarrollado por <strong>Herbert Marcuse</strong>. La industria nos convence de que nuestra identidad y felicidad dependen de lo que compramos.</p>
+                             <div class="infographic-flow anim" data-delay="500" data-from="bottom">
+                                 <div class="flow-item">
+                                     <div class="icon-wrapper"><i class="fas fa-user-friends"></i></div>
+                                     <h4>Necesidad Real</h4>
+                                     <p>Comunicarse, socializar, pertenecer.</p>
+                                 </div>
+                                 <div class="flow-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+                                 <div class="flow-item">
+                                     <div class="icon-wrapper"><i class="fas fa-mobile-alt"></i></div>
+                                     <h4>Necesidad "Falsa"</h4>
+                                     <p>Creer que *necesitas* cambiar de móvil CADA AÑO para ser feliz o suficiente.</p>
+                                 </div>
+                                  <div class="flow-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+                                 <div class="flow-item">
+                                     <div class="icon-wrapper"><i class="fas fa-gem"></i></div>
+                                     <h4>El Resultado</h4>
+                                     <p>Trabajas para comprar cosas que no necesitas para impresionar a gente a la que no le importas.</p>
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+
+                    <div class="slide quiz-slide" data-header="Pregunta de Repaso 3">
+                        <div class="slide-content full-center">
+                            <div class="quiz-box anim" data-delay="200">
+                                <div class="countdown-circle"><span class="timer-number">60</span></div>
+                                <div class="timer-bar"></div>
+                                <p class="quiz-prompt">Si compras un iPhone 'Pro' (azul) en lugar de uno 'Básico' (negro) para sentirte 'creativo', aunque sean casi idénticos por dentro, ¿qué mecanismo estás experimentando?</p>
+                                <div class="options-grid">
+                                    <button class="option" data-explanation="Incorrecto. La Estandarización es que AMBOS teléfonos sean casi idénticos. El truco de la 'elección' es otro mecanismo."><span class="option-prefix">A:</span> Estandarización.</button>
+                                    <button class="option" data-correct="true" data-explanation="¡Correcto! Es el 'adorno' (color, 'Pro') que disfraza el producto estándar para hacerlo parecer una elección única y personal."><span class="option-prefix">B:</span> Pseudoindividualización.</button>
+                                    <button class="option" data-explanation="Incorrecto. La Falsa Necesidad es el deseo *general* de tener el último móvil, no la elección específica entre modelos idénticos."><span class="option-prefix">C:</span> Falsas Necesidades.</button>
+                                    <button class="option" data-explanation="Incorrecto. Esto es una respuesta de la audiencia (como un meme), no un mecanismo de la industria."><span class="option-prefix">D:</span> Lectura de Oposición.</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide" data-header="Diapositiva 6 - Fortalezas y Limitaciones">
+                        <div class="slide-content full-center-vertical">
+                            <h2 class="anim text-center" data-delay="100" data-from="top">Ok, pero... ¿eran perfectos? 🤨</h2>
+                            <p class="anim text-large text-center" data-delay="200" data-from="top">No. La teoría tiene limitaciones. La mayor crítica es que eran <strong>elitistas</strong> y miraban con desprecio la cultura popular.</p>
+                            <div class="versus-container anim" data-delay="400" data-from="bottom">
+                                <div class="versus-column aportes">
+                                    <h3><i class="fas fa-plus-circle"></i> APORTE</h3>
+                                    <ul>
+                                        <li>Cambiaron la culpa: Al llamarla <strong>"Industria"</strong>, culparon al sistema productor cínico, y no al consumidor por tener "mal gusto".</li>
+                                    </ul>
+                                </div>
+                                <div class="versus-divider">PERO</div>
+                                <div class="versus-column debilidades">
+                                    <h3><i class="fas fa-minus-circle"></i> DEBILIDAD</h3>
+                                    <ul>
+                                        <li>Despreciaban la cultura popular. Creían que solo la "alta cultura" (más compleja y exigente) te hacía pensar.</li>
+                                        <li><strong>Ejemplo:</strong> Adorno odiaba el jazz popular. Decía que era repetitivo y comercial, el "reggaetón de su época".</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slide" data-header="Diapositiva 6 - Fortalezas y Limitaciones">
+                        <div class="slide-content full-center-vertical">
+                            <h2 class="anim text-center" data-delay="100" data-from="top">El Mayor Error: Subestimar al Público</h2>
+                            <p class="anim text-large text-center" data-delay="200" data-from="top">Su teoría veía al público como "zombis culturales", una esponja que absorbe todo pasivamente.</p>
+                            <div class="versus-container anim" data-delay="400" data-from="bottom">
+                                <div class="versus-column debilidades">
+                                    <h3><i class="fas fa-robot"></i> Visión de Frankfurt</h3>
+                                    <ul>
+                                        <li>La audiencia es PASIVA.</li>
+                                        <li>Somos "zombis" que solo consumen sin pensar.</li>
+                                    </ul>
+                                </div>
+                                <div class="versus-divider">VS</div>
+                                <div class="versus-column aportes">
+                                    <h3><i class="fas fa-user-edit"></i> Visión Moderna (S. Hall)</h3>
+                                    <ul>
+                                        <li>¡La gente no es tonta!.</li>
+                                        <li>La audiencia es ACTIVA.</li>
+                                        <li>No solo recibimos mensajes, los "decodificamos" y les damos nuestro propio sentido.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slide" data-header="Diapositiva 6 - Fortalezas y Limitaciones">
+                        <div class="slide-content full-center-vertical">
+                            <h2 class="anim text-center" data-delay="100" data-from="top">La Resistencia: "Codificación y Decodificación"</h2>
+                            <p class="anim text-large text-center" data-delay="200" data-from="top">Stuart Hall propuso que podemos hacer 3 tipos de "lecturas" de un producto cultural:</p>
+                            <div class="feature-grid anim" data-delay="400" data-from="bottom">
+                                <div class="feature-card">
+                                    <div class="icon-wrapper"><i class="fas fa-check"></i></div>
+                                    <h3>1. Dominante</h3>
+                                    <p>Aceptas el mensaje tal cual te lo dan. (Ej: "Necesito ese iPhone para ser feliz").</p>
+                                </div>
+                                <div class="feature-card">
+                                    <div class="icon-wrapper"><i class="fas fa-handshake"></i></div>
+                                    <h3>2. Negociada</h3>
+                                    <p>Lo aceptas en parte, pero lo adaptas a tu realidad. (Ej: "Me gusta la película, pero sé que su mensaje es consumista").</p>
+                                </div>
+                                <div class="feature-card">
+                                    <div class="icon-wrapper"><i class="fas fa-fist-raised"></i></div>
+                                    <h3>3. De Oposición</h3>
+                                    <p>Rechazas el mensaje y le das un significado nuevo y subversivo. (Ej: La comunidad LGTBQ+ convirtiendo canciones pop en himnos de orgullo).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slide quiz-slide" data-header="Pregunta de Repaso 4">
+                        <div class="slide-content full-center">
+                            <div class="quiz-box anim" data-delay="200">
+                                <div class="countdown-circle"><span class="timer-number">60</span></div>
+                                <div class="timer-bar"></div>
+                                <p class="quiz-prompt">Cuando los fans de una serie odian el final y crean "fan fiction" para "arreglarlo", ¿qué demuestran, según los Estudios Culturales?</p>
+                                <div class="options-grid">
+                                    <button class="option" data-explanation="Incorrecto. Demuestran lo contrario: que no son una 'esponja' pasiva, sino que son creativos y activos."><span class="option-prefix">A:</span> Que son una audiencia pasiva, como decía Adorno.</button>
+                                    <button class="option" data-explanation="Falso. La 'alta cultura' era lo que Adorno defendía. El fan fiction es cultura popular activa."><span class="option-prefix">B:</span> Que prefieren la 'alta cultura' sobre la popular.</button>
+                                    <button class="option" data-correct="true" data-explanation="¡Correcto! Demuestran que la audiencia no es 'tonta'. Son jugadores activos que se apropian de los productos culturales y les dan nuevos significados."><span class="option-prefix">C:</span> Que la audiencia es activa, creativa y 'decodifica' los mensajes.</button>
+                                    <button class="option" data-explanation="Incorrecto. La estandarización es la producción (la fórmula), el fan fiction es la recepción (la respuesta de la audiencia)."><span class="option-prefix">D:</span> Que la estandarización de los finales de series funciona.</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide" data-header="Diapositiva 7 - Caso: Presentación">
+                         <div class="slide-content text-center full-center">
+                            <h3 class="anim subtitle" data-delay="100" data-from="top">Aterrizando la Teoría: Caso Moderno</h3>
+                            <i class="fab fa-instagram icon-large anim" data-delay="300" data-from="top"></i>
+                            <h1 class="anim" data-delay="500" data-from="top">El Fenómeno Influencer</h1>
+                            <p class="anim text-large main-idea" data-delay="700" data-from="bottom">Donde la vida misma se vuelve un producto.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="slide" data-header="Diapositiva 7 - Caso: Presentación">
+                        <div class="slide-content text-center full-center">
+                            <h2 class="anim" data-delay="100" data-from="top">Contexto del Caso: El "Anuncio Nativo" 🤫</h2>
+                            <p class="anim text-large" data-delay="300" data-from="top">El poder del influencer no es un comercial tradicional. Es publicidad disfrazada de contenido <strong>"auténtico"</strong> y <strong>"nativo"</strong> de la plataforma.</p>
+                            <div class="infographic-flow anim" data-delay="500" data-from="bottom">
+                                <div class="flow-item">
+                                    <div class="icon-wrapper"><i class="fas fa-user-friends"></i></div>
+                                    <h4>Confianza</h4>
+                                    <p>El influencer usa la confianza y la relación (parasocial) que tiene con sus seguidores.</p>
+                                </div>
+                                <div class="flow-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+                                <div class="flow-item">
+                                    <div class="icon-wrapper"><i class="fas fa-gift"></i></div>
+                                    <h4>Recomendación</h4>
+                                    <p>Vende un producto como si fuera una "recomendación personal" a un amigo.</p>
+                                </div>
+                            </div>
+                            <p class="anim text-large" data-delay="700" data-from="bottom">Analizaremos el post de un influencer muy conocido, donde la publicidad se disfraza de autenticidad.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="slide" data-header="Diapositiva 8 - Caso: Análisis">
+                        <div class="slide-content full-center-vertical">
+                            <h2 class="anim text-center" data-delay="100" data-from="top">Análisis: El Influencer como Fábrica</h2>
+                            <p class="anim text-large text-center" data-delay="200" data-from="top">Imaginemos un post patrocinado de un influencer promocionando un reloj:</p>
+                            <div class="pillar-list anim" data-delay="400" data-from="bottom">
+                                <div class="pillar">
+                                    <div class="pillar-icon"><i class="fas fa-clone"></i></div>
+                                    <div>
+                                        <h4>1. Estandarización</h4>
+                                        <p>La foto probablemente seguirá una fórmula: luz perfecta, pose "casual" (quizás mirando el móvil), el reloj visible pero no demasiado obvio, un copy que mezcle inspiración con hashtags de la marca.</p>
+                                    </div>
+                                </div>
+                                <div class="pillar">
+                                    <div class="pillar-icon"><i class="fas fa-user-check"></i></div>
+                                    <div>
+                                        <h4>2. Pseudoindividualización</h4>
+                                        <p>Se presentará como un "momento real" de su vida ("listo para mi evento", "siempre a tiempo"). Disfraza el anuncio como una elección personal y auténtica para hacerlo parecer único.</p>
+                                    </div>
+                                </div>
+                                <div class="pillar">
+                                    <div class="pillar-icon"><i class="fas fa-gem"></i></div>
+                                    <div>
+                                        <h4>3. Falsas Necesidades</h4>
+                                        <p>Conectará el reloj con su éxito o evento importante. No te vende las funciones del reloj, te vende el <strong>estatus</strong>. La "necesidad falsa" es adquirir ese estatus a través del producto.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slide quiz-slide" data-header="Pregunta de Repaso 5">
+                        <div class="slide-content full-center">
+                            <div class="quiz-box anim" data-delay="200">
+                                <div class="countdown-circle"><span class="timer-number">60</span></div>
+                                <div class="timer-bar"></div>
+                                <p class="quiz-prompt">Que un post patrocinado parezca un "momento auténtico" de la vida de un influencer en lugar de un comercial obvio, es un ejemplo perfecto de:</p>
+                                <div class="options-grid">
+                                    <button class="option" data-explanation="Incorrecto. La Estandarización es la fórmula repetida (la pose, la luz). El disfraz de 'autenticidad' es el siguiente paso."><span class="option-prefix">A:</span> Estandarización.</button>
+                                    <button class="option" data-correct="true" data-explanation="¡Correcto! Es el 'adorno que disfraza la uniformidad'. El producto es masivo (estándar), pero se vende como una elección 'única' y 'personal' del influencer."><span class="option-prefix">B:</span> Pseudoindividualización.</button>
+                                    <button class="option" data-explanation="Incorrecto. La Falsa Necesidad es el *resultado* (querer el reloj para ser como él). La técnica de disfrazar el anuncio es la Pseudoindividualización."><span class="option-prefix">C:</span> Falsas Necesidades.</button>
+                                    <button class="option" data-explanation="Falso. La Lectura de Oposición sería, por ejemplo, crear un meme burlándose de él por 'venderse' a la marca."><span class="option-prefix">D:</span> Lectura de Oposición.</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slide" data-header="Diapositiva 9 - Evidencia Visual">
+                        <div class="slide-content">
+                            <div class="grid-2-col">
+                                <div class="col anim" data-delay="400" data-from="left">
+                                    <div class="instagram-post-mockup">
+                                        <div class="post-header">
+                                            <img src="./imagenes/perfil.png" class="profile-pic" alt="Westcol profile picture"/>
+                                            <div class="username-container">
+                                                <span class="username">westcol <i class="fas fa-check-circle verified-badge"></i></span>
+                                            </div>
+                                            <span class="follow-button">Seguir</span>
+                                        </div>
+                                        <img src="./imagenes/post.png" alt="Post by Westcol" class="post-image"/>
+                                        <div class="post-footer">
+                                            <p>❤️ <b>489,102 Me gusta</b></p>
+                                            <p><b>westcol</b> Contando las horas para Supernova. La mente enfocada, listo para hacer historia. Siempre a tiempo. #GalaxyWatch8Ultra #TeamGalaxy</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="post-anatomy-col" class="col anim" data-delay="100" data-from="right">
+                                    <div id="anatomy-blur-overlay">
+                                        <div class="overlay-content">
+                                            <i class="fas fa-hand-pointer"></i>
+                                            <p>Toca para revelar el análisis</p>
+                                        </div>
+                                    </div>
+                                    <div id="anatomy-content">
+                                        <h2>Anatomía del Anuncio</h2>
+                                        <div class="pillar-list">
+                                            <div class="pillar anim" data-delay="300" data-from="right">
+                                                <div class="pillar-icon">1</div>
+                                                <div>
+                                                    <h4>Estandarización (La Fórmula)</h4>
+                                                    <p>La foto sigue la fórmula: influencer mirando el móvil (pose casual), reloj visible, buena iluminación. El copy usa hashtags de marca (`#TeamGalaxy`) y frases inspiradoras genéricas ('listo para hacer historia').</p>
+                                                </div>
+                                            </div>
+                                            <div class="pillar anim" data-delay="500" data-from="right">
+                                                <div class="pillar-icon">2</div>
+                                                <div>
+                                                    <h4>Pseudoindividualización (El Disfraz)</h4>
+                                                    <p>Se disfraza como parte de *su* preparación para 'Supernova'. El reloj no es un producto impuesto, es *su* herramienta para estar 'siempre a tiempo'. Parece auténtico, no un comercial.</p>
+                                                </div>
+                                            </div>
+                                            <div class="pillar anim" data-delay="700" data-from="right">
+                                                <div class="pillar-icon">3</div>
+                                                <div>
+                                                    <h4>Falsas Necesidades (El Resultado)</h4>
+                                                    <p>Los comentarios ('Duro ese reloj', 'Qué nivel', 'Quiero uno así') muestran que el estatus de Westcol se transfiere al reloj. La audiencia no 'necesita' un reloj, 'necesita' el estatus que *él* representa.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="floating-comments-container">
+                                <div class="floating-comment">
+                                    <img src="https://picsum.photos/40/40?random=1" class="comment-pic" alt="user"/>
+                                    <div class="comment-body"><p class="comment-text"><b class="comment-user">santi_go19</b> Listo pa' marcar la hora del KO. Durísimo ese reloj 🔥</p><div class="comment-actions"><span>1 d</span><span><b>892 Me gusta</b></span><span>Responder</span></div></div><i class="far fa-heart comment-like-icon"></i>
+                                </div>
+                                <div class="floating-comment">
+                                    <img src="https://picsum.photos/40/40?random=2" class="comment-pic" alt="user"/>
+                                    <div class="comment-body"><p class="comment-text"><b class="comment-user">valentina.gomez</b> Ome West, siempre la rompes. ¿Qué reloj es?</p><div class="comment-actions"><span>1 d</span><span><b>1,204 Me gusta</b></span><span>Responder</span></div></div><i class="far fa-heart comment-like-icon"></i>
+                                </div>
+                                <div class="floating-comment">
+                                    <img src="https://picsum.photos/40/40?random=3" class="comment-pic" alt="user"/>
+                                    <div class="comment-body"><p class="comment-text"><b class="comment-user">pipe_2002</b> Con ese reloj fijo no se te pasa la hora pa' la pelea jaja</p><div class="comment-actions"><span>22 h</span><span><b>451 Me gusta</b></span><span>Responder</span></div></div><i class="far fa-heart comment-like-icon"></i>
+                                </div>
+                                <div class="floating-comment">
+                                    <img src="https://picsum.photos/40/40?random=4" class="comment-pic" alt="user"/>
+                                    <div class="comment-body"><p class="comment-text"><b class="comment-user">daniela_osp</b> Ufff esa muñeca brilla más que mi futuro. Qué nivel.</p><div class="comment-actions"><span>20 h</span><span><b>677 Me gusta</b></span><span>Responder</span></div></div><i class="far fa-heart comment-like-icon"></i>
+                                </div>
+                                <div class="floating-comment">
+                                    <img src="https://picsum.photos/40/40?random=5" class="comment-pic" alt="user"/>
+                                    <div class="comment-body"><p class="comment-text"><b class="comment-user">alejo_quintero</b> El outfit 10/10 y el reloj complementa perfecto. A romper!</p><div class="comment-actions"><span>18 h</span><span><b>301 Me gusta</b></span><span>Responder</span></div></div><i class="far fa-heart comment-like-icon"></i>
+                                </div>
+                                <div class="floating-comment">
+                                    <img src="https://picsum.photos/40/40?random=6" class="comment-pic" alt="user"/>
+                                    <div class="comment-body"><p class="comment-text"><b class="comment-user">user1999_</b> La cuenta regresiva se ve mejor en esa muñeca. Con toda bro!</p><div class="comment-actions"><span>17 h</span><span><b>250 Me gusta</b></span><span>Responder</span></div></div><i class="far fa-heart comment-like-icon"></i>
+                                </div>
+                                <div class="floating-comment">
+                                    <img src="https://picsum.photos/40/40?random=7" class="comment-pic" alt="user"/>
+                                    <div class="comment-body"><p class="comment-text"><b class="comment-user">laura_pardo</b> Qué elegancia, West. El reloj es la cereza del pastel.</p><div class="comment-actions"><span>16 h</span><span><b>489 Me gusta</b></span><span>Responder</span></div></div><i class="far fa-heart comment-like-icon"></i>
+                                </div>
+                                <div class="floating-comment">
+                                    <img src="https://picsum.photos/40/40?random=8" class="comment-pic" alt="user"/>
+                                    <div class="comment-body"><p class="comment-text"><b class="comment-user">andres_05</b> Ese reloj debe tener cronómetro pa' medir cuánto dura el otro man jajaja</p><div class="comment-actions"><span>15 h</span><span><b>502 Me gusta</b></span><span>Responder</span></div></div><i class="far fa-heart comment-like-icon"></i>
+                                </div>
+                                <div class="floating-comment">
+                                    <img src="https://picsum.photos/40/40?random=9" class="comment-pic" alt="user"/>
+                                    <div class="comment-body"><p class="comment-text"><b class="comment-user">isabella_21</b> Siempre un paso adelante en todo. Te admiro resto!</p><div class="comment-actions"><span>14 h</span><span><b>198 Me gusta</b></span><span>Responder</span></div></div><i class="far fa-heart comment-like-icon"></i>
+                                </div>
+                                <div class="floating-comment">
+                                    <img src="https://picsum.photos/40/40?random=10" class="comment-pic" alt="user"/>
+                                    <div class="comment-body"><p class="comment-text"><b class="comment-user">camilo_rt</b> Zzz... severa máquina en la muñeca.</p><div class="comment-actions"><span>13 h</span><span><b>711 Me gusta</b></span><span>Responder</span></div></div><i class="far fa-heart comment-like-icon"></i>
+                                </div>
+                                <div class="floating-comment">
+                                    <img src="https://picsum.photos/40/40?random=11" class="comment-pic" alt="user"/>
+                                    <div class="comment-body"><p class="comment-text"><b class="comment-user">sofia.reyes</b> Alguien que me diga la ref de ese reloj porfaaa, es para una tarea.</p><div class="comment-actions"><span>12 h</span><span><b>234 Me gusta</b></span><span>Responder</span></div></div><i class="far fa-heart comment-like-icon"></i>
+                                </div>
+                                <div class="floating-comment">
+                                    <img src="https://picsum.photos/40/40?random=12" class="comment-pic" alt="user"/>
+                                    <div class="comment-body"><p class="comment-text"><b class="comment-user">mateo_giraldo</b> Qué enfoque mi bro. Los detalles hacen la diferencia.</p><div class="comment-actions"><span>11 h</span><span><b>159 Me gusta</b></span><span>Responder</span></div></div><i class="far fa-heart comment-like-icon"></i>
+                                </div>
+                                <div class="floating-comment">
+                                    <img src="https://picsum.photos/40/40?random=13" class="comment-pic" alt="user"/>
+                                    <div class="comment-body"><p class="comment-text"><b class="comment-user">juanita_v</b> Cuando sea grande quiero tener un reloj así de chimba.</p><div class="comment-actions"><span>10 h</span><span><b>388 Me gusta</b></span><span>Responder</span></div></div><i class="far fa-heart comment-like-icon"></i>
+                                </div>
+                                <div class="floating-comment">
+                                    <img src="https://picsum.photos/40/40?random=14" class="comment-pic" alt="user"/>
+                                    <div class="comment-body"><p class="comment-text"><b class="comment-user">felipe_angel</b> Ese reloj debe costar lo que vale mi semestre jajaja bendiciones.</p><div class="comment-actions"><span>9 h</span><span><b>956 Me gusta</b></span><span>Responder</span></div></div><i class="far fa-heart comment-like-icon"></i>
+                                </div>
+                                <div class="floating-comment">
+                                    <img src="https://picsum.photos/40/40?random=15" class="comment-pic" alt="user"/>
+                                    <div class="comment-body"><p class="comment-text"><b class="comment-user">diana_correa</b> La mejor energía siempre, West. A romperla!</p><div class="comment-actions"><span>8 h</span><span><b>180 Me gusta</b></span><span>Responder</span></div></div><i class="far fa-heart comment-like-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide quiz-slide" data-header="Pregunta de Repaso 6">
+                        <div class="slide-content full-center">
+                            <div class="quiz-box anim" data-delay="200">
+                                <div class="countdown-circle"><span class="timer-number">60</span></div>
+                                <div class="timer-bar"></div>
+                                <p class="quiz-prompt">En el post de Westcol, el mecanismo principal que crea el deseo por el reloj es:</p>
+                                <div class="options-grid">
+                                    <button class="option" data-explanation="Incorrecto. La publicación casi no menciona las funciones; su poder no está en lo que el reloj 'hace', sino en quién lo 'usa'. El deseo no nace de la información."><span class="option-prefix">A:</span> Una descripción detallada de las funciones del reloj.</button>
+                                    <button class="option" data-explanation="Falso. El evento es solo el escenario. La gente no desearía el reloj si lo usara una persona desconocida en el mismo evento. El atractivo principal viene del influencer."><span class="option-prefix">B:</span> La asociación del producto con un evento importante.</button>
+                                    <button class="option" data-correct="true" data-explanation="¡Correcto! El reloj se 'contagia' del éxito y la imagen del influencer. Sus seguidores no solo quieren un reloj, quieren un pedazo del estilo de vida y el estatus que él representa. Es una Falsa Necesidad."><span class="option-prefix">C:</span> La transferencia del estatus y estilo de vida del influencer al producto.</button>
+                                    <button class="option" data-explanation="Incorrecto. Este tipo de marketing sutil no usa descuentos. Su objetivo no es que el producto parezca barato, sino que parezca exclusivo y deseable al asociarlo con una persona aspiracional."><span class="option-prefix">D:</span> Un descuento o una promoción especial en los hashtags.</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slide" data-header="Diapositiva 10 - Conclusiones">
+                         <div class="slide-content text-center full-center">
+                            <div class="conclusion-box">
+                                <div class="anim" data-delay="100"><i class="fas fa-question-circle conclusion-icon"></i></div>
+                                <h2 class="anim" data-delay="300">Entonces, ¿qué hacemos ahora? 💡</h2>
+                                <p class="anim text-large" data-delay="500">¿Tiramos nuestros teléfonos, cancelamos Netflix y nos vamos al bosque?</p>
+                                <p class="anim text-large" data-delay="700"><strong><span class="text-cyan">¡Para nada!</span></strong>. La idea de la Teoría Crítica no es ser un amargado y odiar la cultura popular.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slide" data-header="Diapositiva 10 - Conclusiones">
+                         <div class="slide-content text-center full-center">
+                            <div class="conclusion-box">
+                                <div class="anim" data-delay="100"><i class="fas fa-search-plus conclusion-icon"></i></div>
+                                <h2 class="anim" data-delay="300">La clave es la <span class="text-cyan">CONCIENCIA</span>.</h2>
+                                <p class="anim text-large" data-delay="500">La frase genial de Adorno lo resume: <strong>"El que piensa opone resistencia"</strong>.</p>
+                                <p class="anim text-large" data-delay="700">No se trata de dejar de disfrutar, se trata de ser un <strong>consumidor crítico</strong>. Es aprender a "leer la Matrix" y preguntarte: "Ok, ¿por qué me gusta esto? ¿Qué me está vendiendo realmente?".</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide" data-header="Diapositiva 11 - Bibliografía">
+                        <div class="slide-content full-center-vertical">
+                             <h2 class="anim" data-delay="100" data-from="top"><i class="fas fa-book-open"></i> Referencias</h2>
+                             <div class="anim reference-box" data-delay="300" data-from="bottom">
+                                <p>Adorno, T. W., & Horkheimer, M. (1944). <i>Dialéctica de la ilustración</i>.</p>
+                                <p>Fonseca, W., & Riaño, C. (s.f.). <i>Industria Cultural: ¿Entretenimiento o Control? Una Mirada desde la Escuela de Frankfurt</i>. [Documento PDF base de la presentación].</p>
+                                <p>Hall, S. (1980). Encoding/Decoding. En <i>Culture, Media, Language</i>.</p>
+                                <p>Lozano Rendón, J. C. (2007). <i>Teoría e investigación de la comunicación de masas</i> (2.ª ed.). Pearson Educación.</p>
+                                <p>Marcuse, H. (1964). <i>El hombre unidimensional</i>.</p>
+                             </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div id="slide-header" class="slide-header"></div>
+            </div>
+
+            <nav id="slide-nav-container" class="slide-nav-container"></nav>
+
+        </div>
+    </main>
+    
+    <div id="modal-overlay" class="modal-overlay">
+        <div id="raffle-modal" class="modal-box">
+            <div id="raffle-input-view">
+                <h2>¡Vamos a sortear!</h2>
+                <p>El elegido responderá la siguiente pregunta. Ingresa el número de participantes:</p>
+                <input type="number" id="raffle-input-display" class="raffle-input-display" placeholder="0" maxlength="2">
+                
+                <div id="numpad" class="numpad">
+                    <button class="numpad-btn" data-key="1">1</button>
+                    <button class="numpad-btn" data-key="2">2</button>
+                    <button class="numpad-btn" data-key="3">3</button>
+                    <button class="numpad-btn" data-key="4">4</button>
+                    <button class="numpad-btn" data-key="5">5</button>
+                    <button class="numpad-btn" data-key="6">6</button>
+                    <button class="numpad-btn" data-key="7">7</button>
+                    <button class="numpad-btn" data-key="8">8</button>
+                    <button class="numpad-btn" data-key="9">9</button>
+                    <button class="numpad-btn delete" data-key="del"><i class="fas fa-delete-left"></i></button>
+                    <button class="numpad-btn" data-key="0">0</button>
+                    <button class="numpad-btn check" data-key="ok"><i class="fas fa-check"></i></button>
+                </div>
+
+                <div class="modal-actions" style="display: none;">
+                    <button id="raffle-skip-btn" class="action-btn secondary-btn">Saltar Sorteo</button>
+                    <button id="raffle-accept-btn" class="action-btn">Aceptar</button>
+                </div>
+            </div>
+            <div id="raffle-run-view" class="hidden">
+                <h2>Buscando al siguiente participante...</h2>
+                <div id="raffle-animation-display" class="raffle-animation-display">--</div>
+                <button id="raffle-start-btn" class="action-btn">¡INICIAR SORTEO!</button>
+                <div id="raffle-result-view" class="hidden">
+                    <p>¡El elegido es el número de arriba!</p>
+                    <span>Que pase al frente para responder la siguiente pregunta.</span>
+                    <button id="raffle-continue-btn" class="action-btn small-btn">Continuar</button>
+                </div>
+                 <button id="raffle-back-btn" class="action-btn secondary-btn small-btn">Volver</button>
+            </div>
+        </div>
+        
+        <div id="quiz-confirm-modal" class="modal-box small-modal">
+            <h2>¿Última palabra? 🤔</h2>
+            <div class="modal-actions">
+                <button id="quiz-cancel-btn" class="action-btn secondary-btn">No, cambiar</button>
+                <button id="quiz-confirm-btn" class="action-btn">¡Sí, seguro!</button>
+            </div>
+        </div>
+
+        <div id="quiz-suspense-modal" class="modal-box small-modal">
+            <div class="spinner"></div>
+            <h2>Procesando respuesta...</h2>
+        </div>
+
+        <div id="quiz-result-modal" class="modal-box">
+            <h2 id="quiz-result-title"></h2>
+            <div id="quiz-result-icon"></div>
+            <div id="selected-answer-feedback"></div>
+            <hr class="feedback-divider">
+            <div id="other-options-feedback" class="other-options-grid"></div>
+            <button id="quiz-result-continue-btn" class="action-btn">Siguiente</button>
+        </div>
+    </div>
+    
+    <audio id="quiz-audio" src="./audios/audio.mp3" preload="auto"></audio>
+
+    <script src="./script.js"></script>
+
+</body>
+</html>
